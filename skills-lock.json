@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "product-management": {
+      "source": "ooiyeefei/ccc",
+      "sourceType": "github",
+      "skillPath": "plugins/product-management/skills/product-management/SKILL.md",
+      "computedHash": "69f4729e9c91a3739d18ae330b5b8a93518b57ee29da5d5a680e00565b3ef385"
+    }
+  }
+}

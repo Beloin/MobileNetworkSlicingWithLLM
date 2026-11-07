@@ -1,0 +1,704 @@
+{
+  "benchmark": {
+    "ramp": {
+      "threshold": {
+        "viol%": 24.666666666666668,
+        "avg_replicas": 2.5,
+        "under": 1.11,
+        "over": 0.11,
+        "up_recall": 0.11979166666666667,
+        "up_prec": 0.3194444444444444,
+        "hold_ok": 0.4606741573033708,
+        "mae": 0.49333333333333335
+      },
+      "hpa": {
+        "viol%": 15.666666666666668,
+        "avg_replicas": 2.6266666666666665,
+        "under": 0.95,
+        "over": 0.07666666666666666,
+        "up_recall": 0.09554140127388536,
+        "up_prec": 0.2054794520547945,
+        "hold_ok": 0.5703125,
+        "mae": 0.0
+      },
+      "predict-then-threshold": {
+        "viol%": 15.666666666666668,
+        "avg_replicas": 2.6266666666666665,
+        "under": 0.95,
+        "over": 0.07666666666666666,
+        "up_recall": 0.09554140127388536,
+        "up_prec": 0.2054794520547945,
+        "hold_ok": 0.5703125,
+        "mae": 0.0
+      },
+      "llm-stub": {
+        "viol%": 1.0,
+        "avg_replicas": 3.7266666666666666,
+        "under": 0.15666666666666668,
+        "over": 0.38333333333333336,
+        "up_recall": 0.024390243902439025,
+        "up_prec": 0.09090909090909091,
+        "hold_ok": 0.968421052631579,
+        "mae": 1.1
+      },
+      "llm-real-flash": {
+        "viol%": 7.666666666666666,
+        "avg_replicas": 3.93,
+        "under": 0.53,
+        "over": 0.96,
+        "up_recall": 0.15789473684210525,
+        "up_prec": 0.17391304347826086,
+        "hold_ok": 0.5375,
+        "mae": 1.4766666666666666
+      }
+    },
+    "steady": {
+      "threshold": {
+        "viol%": 27.500000000000004,
+        "avg_replicas": 2.575,
+        "under": 1.2833333333333334,
+        "over": 0.21666666666666667,
+        "up_recall": 0.12422360248447205,
+        "up_prec": 0.29850746268656714,
+        "hold_ok": 0.16981132075471697,
+        "mae": 0.5916666666666667
+      },
+      "hpa": {
+        "viol%": 16.666666666666664,
+        "avg_replicas": 2.6333333333333333,
+        "under": 1.1333333333333333,
+        "over": 0.125,
+        "up_recall": 0.09420289855072464,
+        "up_prec": 0.19402985074626866,
+        "hold_ok": 0.3953488372093023,
+        "mae": 0.0
+      },
+      "predict-then-threshold": {
+        "viol%": 16.666666666666664,
+        "avg_replicas": 2.6333333333333333,
+        "under": 1.1333333333333333,
+        "over": 0.125,
+        "up_recall": 0.09420289855072464,
+        "up_prec": 0.19402985074626866,
+        "hold_ok": 0.3953488372093023,
+        "mae": 0.0
+      },
+      "llm-stub": {
+        "viol%": 0.8333333333333334,
+        "avg_replicas": 4.283333333333333,
+        "under": 0.11666666666666667,
+        "over": 0.7583333333333333,
+        "up_recall": 0.1111111111111111,
+        "up_prec": 0.2222222222222222,
+        "hold_ok": 0.96,
+        "mae": 1.65
+      }
+    },
+    "spike": {
+      "threshold": {
+        "viol%": 20.0,
+        "avg_replicas": 2.1458333333333335,
+        "under": 1.1083333333333334,
+        "over": 0.1875,
+        "up_recall": 0.11409395973154363,
+        "up_prec": 0.3617021276595745,
+        "hold_ok": 0.5217391304347826,
+        "mae": 0.44166666666666665
+      },
+      "hpa": {
+        "viol%": 14.583333333333334,
+        "avg_replicas": 2.2375,
+        "under": 0.95,
+        "over": 0.12083333333333333,
+        "up_recall": 0.14634146341463414,
+        "up_prec": 0.32727272727272727,
+        "hold_ok": 0.625,
+        "mae": 0.0
+      },
+      "predict-then-threshold": {
+        "viol%": 15.0,
+        "avg_replicas": 2.2291666666666665,
+        "under": 0.9583333333333334,
+        "over": 0.12083333333333333,
+        "up_recall": 0.13821138211382114,
+        "up_prec": 0.3148148148148148,
+        "hold_ok": 0.625,
+        "mae": 0.008333333333333333
+      },
+      "llm-stub": {
+        "viol%": 1.6666666666666667,
+        "avg_replicas": 4.058333333333334,
+        "under": 0.22083333333333333,
+        "over": 1.2125,
+        "up_recall": 0.09090909090909091,
+        "up_prec": 0.3333333333333333,
+        "hold_ok": 0.9509803921568627,
+        "mae": 1.8208333333333333
+      }
+    },
+    "ramp-llm": {
+      "threshold": {
+        "viol%": 28.431372549019606,
+        "avg_replicas": 2.4901960784313726,
+        "under": 1.4705882352941178,
+        "over": 0.09803921568627451,
+        "up_recall": 0.2,
+        "up_prec": 0.5517241379310345,
+        "hold_ok": 0.2777777777777778,
+        "mae": 0.5
+      },
+      "hpa": {
+        "viol%": 20.588235294117645,
+        "avg_replicas": 2.519607843137255,
+        "under": 1.411764705882353,
+        "over": 0.06862745098039216,
+        "up_recall": 0.17567567567567569,
+        "up_prec": 0.43333333333333335,
+        "hold_ok": 0.32,
+        "mae": 0.0
+      },
+      "predict-then-threshold": {
+        "viol%": 20.588235294117645,
+        "avg_replicas": 2.519607843137255,
+        "under": 1.411764705882353,
+        "over": 0.06862745098039216,
+        "up_recall": 0.17567567567567569,
+        "up_prec": 0.43333333333333335,
+        "hold_ok": 0.32,
+        "mae": 0.0
+      },
+      "llm-stub": {
+        "viol%": 2.941176470588235,
+        "avg_replicas": 3.549019607843137,
+        "under": 0.49019607843137253,
+        "over": 0.17647058823529413,
+        "up_recall": 0.10526315789473684,
+        "up_prec": 0.36363636363636365,
+        "hold_ok": 0.875,
+        "mae": 1.0294117647058822
+      },
+      "llm-real-flash": {
+        "viol%": 7.8431372549019605,
+        "avg_replicas": 4.127450980392157,
+        "under": 0.5882352941176471,
+        "over": 0.8529411764705882,
+        "up_recall": 0.25,
+        "up_prec": 0.3181818181818182,
+        "hold_ok": 0.7741935483870968,
+        "mae": 1.7058823529411764
+      }
+    }
+  },
+  "llm": {
+    "glm-5.3-flash:cloud": [
+      {
+        "call": 1,
+        "state_index": 10,
+        "actions": {
+          "eMBB": 1,
+          "URLLC": 1,
+          "mMTC": 3
+        },
+        "reason": "mMTC violates delay (0.00426>0.003195) and loss (0.43>0.005) with high p_violation; scale 1->3 replicas. eMBB and URLLC well within KPI targets, hold at 1.",
+        "latency_ms": 6451.9,
+        "usage": {
+          "prompt_tokens": 432,
+          "completion_tokens": 1119,
+          "total_tokens": 1551,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 2,
+        "state_index": 40,
+        "actions": {
+          "eMBB": 3,
+          "URLLC": 4,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC both violate delay and loss KPIs (URLLC worst: delay 2.5x target, loss 77x target); scale them up while mMTC is healthy at 1 replica. High p_violation (0.79) supports aggressive scaling.",
+        "latency_ms": 5029.9,
+        "usage": {
+          "prompt_tokens": 439,
+          "completion_tokens": 517,
+          "total_tokens": 956,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 3,
+        "state_index": 70,
+        "actions": {
+          "eMBB": 3,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC both violate delay and loss KPIs at 1 replica; scale eMBB to 3 and URLLC to 5 (stricter targets, highest load) given 67% violation probability; mMTC healthy at low load, keep 1.",
+        "latency_ms": 2883.7,
+        "usage": {
+          "prompt_tokens": 436,
+          "completion_tokens": 436,
+          "total_tokens": 872,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 4,
+        "state_index": 90,
+        "actions": {
+          "eMBB": 3,
+          "URLLC": 3,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC severely violate delay/loss KPIs at 1 replica under high load (~680 Mbps total, p_violation 0.59); scale both to 3. mMTC comfortably within KPIs at minimal load; keep 1.",
+        "latency_ms": 3205.9,
+        "usage": {
+          "prompt_tokens": 437,
+          "completion_tokens": 528,
+          "total_tokens": 965,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    ],
+    "glm-5.3:cloud": [
+      {
+        "call": 1,
+        "state_index": 10,
+        "actions": {
+          "eMBB": 1,
+          "URLLC": 2,
+          "mMTC": 4
+        },
+        "reason": "mMTC severely violates delay (0.00426>0.003195) and loss (0.43>>0.005): scale 1->4. URLLC compliant but thin delay margin and high p_violation: bump to 2. eMBB has large KPI headroom: hold at 1.",
+        "latency_ms": 12030.6,
+        "usage": {
+          "prompt_tokens": 432,
+          "completion_tokens": 1223,
+          "total_tokens": 1655,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 2,
+        "state_index": 40,
+        "actions": {
+          "eMBB": 3,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "URLLC loss (0.386 vs 0.005) and delay (2.5x target) critically violated at 164.5 Mbps on 1 replica -> scale to max 5. eMBB loss (0.224 vs 0.02) and delay (1.67x target) violated -> scale to 3. mMTC healthy (delay/loss well under target, 5 Mbps) -> hold at 1. High p_violation (0.79) and 295.5 Mbps forecast confirm aggressive scaling for violating slices.",
+        "latency_ms": 5734.2,
+        "usage": {
+          "prompt_tokens": 439,
+          "completion_tokens": 589,
+          "total_tokens": 1028,
+          "prompt_tokens_details": {
+            "cached_tokens": 64
+          }
+        }
+      },
+      {
+        "call": 3,
+        "state_index": 70,
+        "actions": {
+          "eMBB": 4,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC grossly violate delay/loss targets (loss 0.51/0.65) with high p_violation 0.67; scale both up aggressively, URLLC to max. mMTC is well within targets at 1 replica.",
+        "latency_ms": 5032.1,
+        "usage": {
+          "prompt_tokens": 436,
+          "completion_tokens": 521,
+          "total_tokens": 957,
+          "prompt_tokens_details": {
+            "cached_tokens": 64
+          }
+        }
+      },
+      {
+        "call": 4,
+        "state_index": 90,
+        "actions": {
+          "eMBB": 4,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC grossly violate delay/loss targets (loss ~70% vs 2%/0.5%) at 1 replica under ~340 Mbps each; URLLC gets max replicas for strictest KPIs, eMBB scaled 4x; mMTC meets KPIs at 1. High p_violation (0.59) supports aggressive scale-up.",
+        "latency_ms": 10626.4,
+        "usage": {
+          "prompt_tokens": 437,
+          "completion_tokens": 1182,
+          "total_tokens": 1619,
+          "prompt_tokens_details": {
+            "cached_tokens": 64
+          }
+        }
+      }
+    ],
+    "mistral-large-4:cloud": [
+      {
+        "call": 1,
+        "state_index": 10,
+        "actions": {
+          "eMBB": 1,
+          "URLLC": 1,
+          "mMTC": 5
+        },
+        "reason": "mMTC severely violates delay/loss KPIs (0.00426>0.003195, 0.43>0.005); eMBB/URLLC meet targets",
+        "latency_ms": 23304.8,
+        "usage": {
+          "prompt_tokens": 420,
+          "completion_tokens": 1633,
+          "total_tokens": 2053,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 2,
+        "state_index": 40,
+        "actions": {
+          "eMBB": 3,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "URLLC severe KPI violations (loss 77x target, delay 2.5x) with highest load requires max scaling; eMBB violating delay/loss at high load needs moderate scale-up; mMTC meeting targets with low load stays at minimum.",
+        "latency_ms": 18538.6,
+        "usage": {
+          "prompt_tokens": 424,
+          "completion_tokens": 2599,
+          "total_tokens": 3023,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 3,
+        "state_index": 70,
+        "actions": {
+          "eMBB": 4,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC exhibit severe loss (>50%) and delay violations under high load (198/290 Mbps) with high violation probability (0.67); scaled up aggressively to alleviate congestion. mMTC meets all KPIs with minimal load (5 Mbps).",
+        "latency_ms": 23838.4,
+        "usage": {
+          "prompt_tokens": 420,
+          "completion_tokens": 2912,
+          "total_tokens": 3332,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 4,
+        "state_index": 90,
+        "actions": {
+          "eMBB": 5,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB/URLLC show critical loss (~70% vs <2% target) and delay violations under high load; scale to max replicas. mMTC meets KPIs with low load; keep at minimum.",
+        "latency_ms": 25010.9,
+        "usage": {
+          "prompt_tokens": 420,
+          "completion_tokens": 2157,
+          "total_tokens": 2577,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    ],
+    "deepseek-v4-pro:cloud": [
+      {
+        "call": 1,
+        "state_index": 10,
+        "actions": {
+          "eMBB": 1,
+          "URLLC": 1,
+          "mMTC": 3
+        },
+        "reason": "mMTC KPI violation; scale up to 3; eMBB and URLLC stable",
+        "latency_ms": 15174.5,
+        "usage": {
+          "prompt_tokens": 418,
+          "completion_tokens": 2240,
+          "total_tokens": 2658,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 2,
+        "state_index": 40,
+        "actions": {
+          "eMBB": 5,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC KPI violations severe, scale to max; mMTC healthy.",
+        "latency_ms": 1728.2,
+        "usage": {
+          "prompt_tokens": 422,
+          "completion_tokens": 285,
+          "total_tokens": 707,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 3,
+        "state_index": 70,
+        "actions": {
+          "eMBB": 5,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC KPI violations severe, scale to max; mMTC healthy.",
+        "latency_ms": 4597.2,
+        "usage": {
+          "prompt_tokens": 418,
+          "completion_tokens": 770,
+          "total_tokens": 1188,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "call": 4,
+        "state_index": 90,
+        "actions": {
+          "eMBB": 5,
+          "URLLC": 5,
+          "mMTC": 1
+        },
+        "reason": "eMBB and URLLC have severe delay/loss violations with high load and violation probability; scale to max. mMTC is healthy.",
+        "latency_ms": 6893.1,
+        "usage": {
+          "prompt_tokens": 418,
+          "completion_tokens": 1083,
+          "total_tokens": 1501,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          }
+        }
+      }
+    ]
+  },
+  "mcp": {
+    "estimate_capacity": 3,
+    "scale_replicas_ok": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+    },
+    "scale_replicas_bad": {
+      "ok": false,
+      "reason": "policy: replicas 99 outside [1,5]"
+    },
+    "add_nf_instance": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "region": "edge-1",
+      "action": "create"
+    }
+  },
+  "rq5": {
+    "model": "glm-5.3-flash:cloud",
+    "states": 20,
+    "no_tool": {
+      "viol%": 6.666666666666667,
+      "avg_replicas": 3.466666666666667,
+      "under": 0.45,
+      "over": 0.36666666666666664,
+      "up_recall": 0.0,
+      "up_prec": 0.0,
+      "hold_ok": 0.6551724137931034,
+      "mae": 1.1833333333333333
+    },
+    "tool": {
+      "viol%": 11.666666666666666,
+      "avg_replicas": 2.55,
+      "under": 1.1,
+      "over": 0.1,
+      "up_recall": 0.1794871794871795,
+      "up_prec": 0.4117647058823529,
+      "hold_ok": 0.5,
+      "mae": 0.2
+    },
+    "tool_usage": {
+      "per_decision": [
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ],
+        [
+          "estimate_capacity",
+          "estimate_capacity",
+          "estimate_capacity",
+          "scale_replicas",
+          "scale_replicas",
+          "scale_replicas"
+        ]
+      ],
+      "estimate_capacity": 63
+    }
+  }
+}

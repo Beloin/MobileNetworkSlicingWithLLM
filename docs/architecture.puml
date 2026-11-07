@@ -1,0 +1,31 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultFontSize 11
+left to right direction
+
+rectangle "Slicing dataset\nper-slice load (eMBB/URLLC/mMTC)" as SD
+
+rectangle "Tier 1 — fast ML" as T1 {
+  rectangle "Forecaster" as FC
+  rectangle "KPI predictor\n(numpy MLP)" as KP
+  rectangle "Capacity\nmodel" as CM
+}
+
+rectangle "Tier 2 — LLM\n(Ollama cloud)" as LLM
+rectangle "MCP server\ntool-calling" as MCP
+rectangle "Verification\ngate" as GATE
+rectangle "K8s\nchange" as K8S
+rectangle "Hindsight oracle\n(offline)" as ORC
+
+SD --> FC : per-slice load(t)
+SD --> KP : delay/loss
+SD --> CM : per-NF capacity
+FC --> LLM : forecast
+KP --> LLM : p_violation
+CM --> MCP : estimate_capacity
+LLM <--> MCP : tool_calls / results
+LLM --> GATE : proposed replicas
+GATE --> K8S : apply
+K8S --> ORC : observed KPI
+ORC ..> LLM : score (offline)
+@enduml
