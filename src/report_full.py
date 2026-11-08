@@ -181,10 +181,14 @@ def build_pdf():
 
     # 4. Methods
     S.append(Paragraph("4. Methods", h2))
-    S.append(Paragraph("<b>threshold</b> — reactive: scale only after violation. <b>hpa</b> — ideal "
-        "controller, always required_replicas(load). <b>predict-then-threshold</b> — MLP delay prediction "
-        "then threshold (degenerates to HPA). <b>llm-stub</b> — deterministic rule, near-optimal reference. "
-        "<b>llm-real</b> — Ollama cloud LLM, JSON or tool-calling.", body))
+    for m in [
+        "<b>threshold</b> — reactive: scale only after a violation.",
+        "<b>hpa</b> — ideal controller, always required_replicas(load).",
+        "<b>predict-then-threshold</b> — MLP delay prediction then threshold (degenerates to HPA).",
+        "<b>llm-stub</b> — deterministic rule, near-optimal reference (shares the capacity model).",
+        "<b>llm-real</b> — Ollama cloud LLM, JSON or MCP tool-calling.",
+    ]:
+        S.append(Paragraph("• " + m, bullet))
     S.append(Spacer(1, 8))
 
     # 5. LLM + prompt + tools
