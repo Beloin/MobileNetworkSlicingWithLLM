@@ -44,6 +44,11 @@ def tool_schemas():
                          "properties": {"slice_id": {"type": "string"},
                                         "manifest_text": {"type": "string"}},
                          "required": ["slice_id", "manifest_text"]}},
+        {"name": "inspect_infrastructure",
+         "description": "Computed infra state per slice: utilization, capacity, headroom, required replicas, KPI budgets.",
+         "inputSchema": {"type": "object",
+                         "properties": {"state": {"type": "object"}},
+                         "required": ["state"]}},
     ]
 
 
@@ -89,6 +94,38 @@ def apply_k8s_manifest(slice_id, manifest_text, cfgs):
     return {"ok": ok, "reason": reason, "slice_id": slice_id}
 
 
+def inspect_infrastructure(state, cfgs):
+    """Full computed picture per slice so the model can reason globally:
+    utilization, capacity, headroom, required replicas, and whether a scale-up
+    is feasible within cluster limits."""
+    if isinstance(state, str):
+        try:
+            state = json.loads(state)
+        except json.JSONDecodeError:
+            state = {}
+    if isinstance(state, dict) and "slices" in state:
+        state = state["slices"]
+    out = {}
+    for s in SLICES:
+        st = state.get(s, {}) if isinstance(state, dict) else {}
+        load = float(st.get("load_mbps", st.get("load", 0)))
+        rep = int(st.get("replicas", cfgs[s].min_replicas))
+        cap = rep * cfgs[s].cap_per_replica_mbps
+        util = load / cap if cap else 1.0
+        out[s] = {
+            "load_mbps": round(load, 1),
+            "replicas": rep,
+            "capacity_mbps": round(cap, 1),
+            "utilization": round(util, 3),
+            "required_replicas": required_replicas(load, cfgs[s]),
+            "headroom_replicas": cfgs[s].max_replicas - rep,
+            "feasible_scale_up": rep < cfgs[s].max_replicas,
+            "delay_budget": cfgs[s].delay_budget,
+            "loss_budget": cfgs[s].loss_budget,
+        }
+    return {"ok": True, "infra": out}
+
+
 def call_tool(name, args, cfgs):
     if name == "estimate_capacity":
         return estimate_capacity(args["slice_type"], args["load_mbps"], cfgs)
@@ -100,6 +137,8 @@ def call_tool(name, args, cfgs):
         return add_nf_instance(args["slice_type"], args["region"], cfgs)
     if name == "apply_k8s_manifest":
         return apply_k8s_manifest(args["slice_id"], args["manifest_text"], cfgs)
+    if name == "inspect_infrastructure":
+        return inspect_infrastructure(args["state"], cfgs)
     raise ValueError(f"unknown tool {name}")
 
 

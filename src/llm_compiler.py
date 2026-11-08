@@ -1,6 +1,6 @@
 """Payload builder + LLM decision (Tier 2), per slice.
 
-`build_payload` compacts per-slice telemetry + ML signals. `call_llm` is a
+`build_payload` compacts per-slice telemetry + ML signals. `call_stub` is a
 deterministic offline stub. `call_llm_model` makes one real call to an
 OpenAI-compatible endpoint (Ollama cloud models over localhost, no token).
 """
@@ -8,6 +8,7 @@ import json
 import os
 import time
 import urllib.request
+import urllib.error
 
 from .capacity_model import SLICES, required_replicas
 from .mcp_server import call_tool, openai_tools
@@ -26,7 +27,7 @@ def build_payload(obs, forecast, p_violation, cfgs):
     }
 
 
-def call_llm(payload, cfgs):
+def call_stub(payload, cfgs):
     """Stub: mimic a competent LLM reading the payload. No network."""
     pv = payload["ml"]["p_violation"]
     actions = {}
@@ -50,7 +51,7 @@ def ollama_config():
     return base, key, model
 
 
-def chat(base, key, model, system, user):
+def chat(base, key, model, system, user, retries=6):
     body = json.dumps({"model": model, "messages": [
         {"role": "system", "content": system},
         {"role": "user", "content": user},
@@ -60,12 +61,19 @@ def chat(base, key, model, system, user):
         headers["Authorization"] = f"Bearer {key}"
     url = base.rstrip("/") + "/chat/completions"
     t0 = time.time()
-    req = urllib.request.Request(url, data=body, headers=headers)
-    with urllib.request.urlopen(req, timeout=180) as r:
-        data = json.loads(r.read().decode())
-    latency_ms = (time.time() - t0) * 1000.0
-    content = data["choices"][0]["message"]["content"]
-    return content, data.get("usage", {}), latency_ms
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, data=body, headers=headers)
+            with urllib.request.urlopen(req, timeout=180) as r:
+                data = json.loads(r.read().decode())
+            latency_ms = (time.time() - t0) * 1000.0
+            content = data["choices"][0]["message"]["content"]
+            return content, data.get("usage", {}), latency_ms
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if attempt < retries - 1:
+                time.sleep(15 * (attempt + 1))
+                continue
+            raise
 
 
 def call_llm_model(model, payload, cfgs, base=None, key=None):
@@ -132,6 +140,7 @@ def call_llm_with_tools(model, payload, cfgs, tool_names,
     ]
     tools = openai_tools(tool_names)
     used = []
+    trace = []
     usage = {}
     t0 = time.time()
     for _ in range(max_rounds):
@@ -153,6 +162,7 @@ def call_llm_with_tools(model, payload, cfgs, tool_names,
                 except Exception as e:
                     result = {"error": str(e)}
                 used.append(name)
+                trace.append({"name": name, "args": args, "result": result})
                 messages.append({"role": "tool",
                                  "tool_call_id": tc.get("id", f"call_{len(used)}"),
                                  "content": json.dumps(result)})
@@ -173,6 +183,6 @@ def call_llm_with_tools(model, payload, cfgs, tool_names,
                 actions[s] = payload["slices"][s]["replicas"]
         return {"model": model, "actions": actions,
                 "reason": obj.get("reason", ""), "raw": content,
-                "tools_used": used, "usage": usage,
+                "tools_used": used, "trace": trace, "usage": usage,
                 "latency_ms": (time.time() - t0) * 1000.0}
     raise RuntimeError("tool loop exceeded max_rounds")

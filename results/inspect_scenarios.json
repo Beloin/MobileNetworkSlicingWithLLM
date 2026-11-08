@@ -1,0 +1,1743 @@
+{
+ "ramp|glm-5.3-flash:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 1.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  }
+ ],
+ "ramp|glm-5.3-flash:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "ramp|deepseek-v4-pro:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 0.6666666666666666,
+   "under": 0.3333333333333333,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  }
+ ],
+ "ramp|deepseek-v4-pro:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "ramp|glm-5.3:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  }
+ ],
+ "ramp|glm-5.3:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "steady|glm-5.3-flash:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.3333333333333333,
+   "under": 0.3333333333333333,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 0.3333333333333333,
+   "under": 0.6666666666666666,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.3333333333333333,
+   "under": 0.6666666666666666,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.6666666666666666,
+   "under": 0.6666666666666666,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  }
+ ],
+ "steady|glm-5.3-flash:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "steady|deepseek-v4-pro:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.3333333333333333,
+   "under": 0.3333333333333333,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.3333333333333333,
+   "under": 0.3333333333333333,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.6666666666666666,
+   "under": 0.3333333333333333,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  }
+ ],
+ "steady|deepseek-v4-pro:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "steady|glm-5.3:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.6666666666666666,
+   "under": 1.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.6666666666666666,
+   "under": 0.3333333333333333,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.6666666666666666,
+   "under": 0.6666666666666666,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  }
+ ],
+ "steady|glm-5.3:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "spike|glm-5.3-flash:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.3333333333333333,
+   "under": 0.6666666666666666,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 1.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  }
+ ],
+ "spike|glm-5.3-flash:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "spike|deepseek-v4-pro:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.3333333333333333,
+   "under": 0.3333333333333333,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  }
+ ],
+ "spike|deepseek-v4-pro:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "spike|glm-5.3:cloud|no-tool": [
+  {
+   "k": 0,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 1,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 2,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 3,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 4,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 5,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "k": 6,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "k": 8,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "k": 9,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  }
+ ],
+ "spike|glm-5.3:cloud|inspect": [
+  {
+   "k": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 1,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 2,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 3,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 4,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 5,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 6,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 7,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 8,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "k": 9,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ]
+}

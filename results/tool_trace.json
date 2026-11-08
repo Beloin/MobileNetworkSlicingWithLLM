@@ -1,0 +1,3874 @@
+{
+ "glm-5.3-flash:cloud": [
+  {
+   "i": 0,
+   "actions": {
+    "eMBB": 1,
+    "URLLC": 1,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 47.4,
+        "p_violation": 0.9977800175194619
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00022885326953748006,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 7,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.00033725000000000004,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 36,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025186492890995257,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 4.3999999999999995,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 7.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.069,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 4.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.154,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 2,
+    "mMTC": 3
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 143.76,
+        "p_violation": 0.9857712523783412
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.0003874644464446445,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 45.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.00033725000000000004,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 36,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00426,
+          "loss": 0.42971428571428566
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 50,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 45.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.45,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 50.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 1.754,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 3
+     }
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 2,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 195.70999999999998,
+        "p_violation": 0.9619495800297972
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.007056934426229503,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 98,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.002698000000000003,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 90,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00032110876132930506,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 9.6,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 90.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.921,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 98.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.97,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 9.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.337,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 2,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "aggregate_forecast_mbps": 240.75,
+       "p_violation": 0.9134124226489863,
+       "slices": {
+        "URLLC": {
+         "current_replicas": 1,
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.0376
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 105
+        },
+        "eMBB": {
+         "current_replicas": 1,
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.2245
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 126
+        },
+        "mMTC": {
+         "current_replicas": 1,
+         "kpi_now": {
+          "delay": 0.000277,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.6
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 105.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.039,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.231,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 3,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 296.74999999999994,
+        "p_violation": 0.7928376123496519
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.38571428571428573
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 164.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.2244897959183674
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 126,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002582916160388822,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 5.000000000000002,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 164.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.628,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 2,
+    "mMTC": 4
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 371.42999999999995,
+        "p_violation": 0.7204140651849816
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.000781257713248639,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 73.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5476190476190477
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 216,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00426,
+          "loss": 0.6248120300751879
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 76,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 216.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.211,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 73.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.727,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 76.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 2.665,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
+     }
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 4,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 419.24999999999983,
+        "p_violation": 0.7032747418814009
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.5558241758241759
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 227.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.4571428571428572
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 180,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002418361774744027,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 3.3999999999999995,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 180.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.842,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 227.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.251,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 3.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.119,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 70,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 502.91999999999996,
+        "p_violation": 0.6699094579166757
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6521514629948364
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 290.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5064935064935066
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 198,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025829161603888214,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 5,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 198.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.026,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 290.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.875,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    }
+   ]
+  },
+  {
+   "i": 80,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 601.7999999999997,
+        "p_violation": 0.628106278405011
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.7023564064801178
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 339.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5824175824175823
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 234,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0003049842180774749,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 8.600000000000001,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 234.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.395,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 339.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.36,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 8.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.302,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 90,
+   "actions": {
+    "eMBB": 5,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 688.69,
+        "p_violation": 0.5897
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6992559523809524
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 336,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.7142857142857143
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 342,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002797026315789474,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.8,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 342.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 3.5,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 336.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.325,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.8,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.238,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  }
+ ],
+ "deepseek-v4-pro:cloud": [
+  {
+   "i": 0,
+   "actions": {
+    "eMBB": 1,
+    "URLLC": 1,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00022885326953748006,
+          "loss": 0
+         },
+         "load_mbps": 7,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.00033725000000000004,
+          "loss": 0
+         },
+         "load_mbps": 36,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025186492890995257,
+          "loss": 0
+         },
+         "load_mbps": 4.3999999999999995,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 7.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.069,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 4.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.154,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "actions": {
+    "eMBB": 1,
+    "URLLC": 1,
+    "mMTC": 3
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.0003874644464446445,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 45.5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.00033725000000000004,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 36,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.00426,
+         "loss": 0.42971428571428566
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 50,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 45.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.45,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 50.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 1.754,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 2,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.007057,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 98,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.002698,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 90,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.000321,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 9.6,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 90.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.921,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 98.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.97,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 9.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.337,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 2,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 240.74999999999986,
+        "p_violation": 0.9134124226489863
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.03761904761904765
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 105,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.2244897959183674
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 126,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00027714993481095176,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.6,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 105.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.039,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.231,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 3,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00213,
+         "loss": 0.38571428571428573
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 164.5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.01065,
+         "loss": 0.2244897959183674
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 126,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.0002582916160388822,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 5.000000000000002,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 164.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.628,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 2,
+    "mMTC": 4
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "load_mbps": 73.5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "load_mbps": 216,
+        "replicas": 1
+       },
+       "mMTC": {
+        "load_mbps": 76,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 216.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.211,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 73.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.727,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 76.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 2.665,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 2
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
+     }
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 4,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "load_mbps": 227.5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "load_mbps": 180,
+        "replicas": 1
+       },
+       "mMTC": {
+        "load_mbps": 3.4,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 180.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.842,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 227.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.251,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 3.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.119,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 70,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 502.91999999999996,
+        "p_violation": 0.6699094579166757
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6521514629948364
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 290.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5064935064935066
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 198,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025829161603888214,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 5,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 198.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.026,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 290.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.875,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 5
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 80,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00213,
+         "loss": 0.7023564064801178
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 339.5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.01065,
+         "loss": 0.5824175824175823
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 234,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.0003049842180774749,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 8.600000000000001,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 234.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.395,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 339.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.36,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 8.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.302,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 5
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 90,
+   "actions": {
+    "eMBB": 5,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00213,
+         "loss": 0.6992559523809524
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 336,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.01065,
+         "loss": 0.7142857142857143
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 342,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.0002797026315789474,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 6.8,
+        "max_replicas": 5,
+        "replicas": 1
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 342.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 3.5,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 336.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.325,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.8,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.238,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 5
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 5
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  }
+ ],
+ "glm-5.3:cloud": [
+  {
+   "i": 0,
+   "actions": {
+    "eMBB": 1,
+    "URLLC": 1,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00022885326953748006,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 7,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.00033725,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 36,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.00025186492890995257,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 4.4,
+        "replicas": 1
+       },
+       "ml": {
+        "aggregate_forecast_mbps": 47.4,
+        "p_violation": 0.9977800175194619
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 7.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.069,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 4.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.154,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 10,
+   "actions": {
+    "eMBB": 1,
+    "URLLC": 1,
+    "mMTC": 3
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 143.76,
+        "p_violation": 0.9857712523783412
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.0003874644464446445,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 45.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.00033725,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 36,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00426,
+          "loss": 0.42971428571428566
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 50,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 36.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.368,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 45.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.45,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 50.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 1.754,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 3
+     }
+    }
+   ]
+  },
+  {
+   "i": 20,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 2,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 195.70999999999998,
+        "p_violation": 0.9619495800297972
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.007056934426229503,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 98,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.002698000000000003,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 90,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00032110876132930506,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 9.6,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 90.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 0.921,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 98.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.97,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 9.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.337,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 30,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 3,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 240.74999999999986,
+        "p_violation": 0.9134124226489863
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.03761904761904765
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 105,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.2244897959183674
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 126,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00027714993481095176,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.6,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 105.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.039,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.231,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 40,
+   "actions": {
+    "eMBB": 2,
+    "URLLC": 3,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 296.74999999999994,
+        "p_violation": 0.7928376123496519
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.38571428571428573
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 164.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.2244897959183674
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 126,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002582916160388822,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 5.000000000000002,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 126.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.289,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 164.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 1.628,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 50,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 2,
+    "mMTC": 4
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 371.42999999999995,
+        "p_violation": 0.7204140651849816
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.000781257713248639,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 73.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5476190476190477
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 216,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00426,
+          "loss": 0.6248120300751879
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 76,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 216.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.211,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 73.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 0.727,
+        "required_replicas": 2,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 76.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 2.665,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
+     }
+    }
+   ]
+  },
+  {
+   "i": 60,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 4,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 419.24999999999983,
+        "p_violation": 0.7032747418814009
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.5558241758241759
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 227.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.4571428571428572
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 180,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002418361774744027,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 3.3999999999999995,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 180.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 1.842,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 227.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.251,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 3.4,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.119,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 70,
+   "actions": {
+    "eMBB": 3,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00213,
+         "loss": 0.6521514629948364
+        },
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
+        },
+        "load_mbps": 290.5,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.01065,
+         "loss": 0.5064935064935066
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 198,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.00025829161603888214,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 5,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "ml": {
+        "aggregate_forecast_mbps": 502.92,
+        "p_violation": 0.6699094579166757
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 198.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.026,
+        "required_replicas": 3,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 290.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 2.875,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 5.0,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.175,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 80,
+   "actions": {
+    "eMBB": 4,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 601.7999999999997,
+        "p_violation": 0.628106278405011
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.7023564064801178
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 339.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5824175824175823
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 234,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0003049842180774749,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 8.6,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 234.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 2.395,
+        "required_replicas": 4,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 339.5,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.36,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 8.6,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.302,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  },
+  {
+   "i": 90,
+   "actions": {
+    "eMBB": 5,
+    "URLLC": 5,
+    "mMTC": 1
+   },
+   "trace": [
+    {
+     "name": "inspect_infrastructure",
+     "args": {
+      "state": {
+       "ml": {
+        "aggregate_forecast_mbps": 688.6899999999998,
+        "p_violation": 0.5896936164579142
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6992559523809524
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 336,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.7142857142857143
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 342,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002797026315789474,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.8,
+         "max_replicas": 5,
+         "replicas": 1
+        }
+       }
+      }
+     },
+     "result": {
+      "ok": true,
+      "infra": {
+       "eMBB": {
+        "load_mbps": 342.0,
+        "replicas": 1,
+        "capacity_mbps": 97.7,
+        "utilization": 3.5,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.00639,
+        "loss_budget": 0.02
+       },
+       "URLLC": {
+        "load_mbps": 336.0,
+        "replicas": 1,
+        "capacity_mbps": 101.0,
+        "utilization": 3.325,
+        "required_replicas": 5,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.000852,
+        "loss_budget": 0.005
+       },
+       "mMTC": {
+        "load_mbps": 6.8,
+        "replicas": 1,
+        "capacity_mbps": 28.5,
+        "utilization": 0.238,
+        "required_replicas": 1,
+        "headroom_replicas": 4,
+        "feasible_scale_up": true,
+        "delay_budget": 0.003195,
+        "loss_budget": 0.005
+       }
+      }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    }
+   ]
+  }
+ ]
+}

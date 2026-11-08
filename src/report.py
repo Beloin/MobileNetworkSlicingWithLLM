@@ -122,48 +122,73 @@ def build_pdf(res):
     # 3. Method and controllers
     story.append(Paragraph("3. Method and controllers (detailed)", h2))
     mono = ParagraphStyle("mono", parent=ss["Code"], fontSize=8, leading=10, leftIndent=14)
-    story.append(Paragraph("<b>Harness:</b> every controller — threshold, HPA, predict-then-threshold, "
-        "LLM stub, real LLM — is the same decide(obs) -&gt; action function. run_method feeds each action to "
-        "the env (analytic capacity model -&gt; delay/loss -&gt; violation) and to the hindsight oracle "
-        "(future-load P95 -&gt; required). metrics() aggregates the outcome. Every row in the results table is "
-        "measured identically; only the decision policy differs.", body))
-    story.append(Paragraph("<b>Environment / capacity model:</b> per slice state = {load, replicas, delay, "
-        "loss}; action = {slice: replicas}, clamped to [1,5]. effective_capacity = replicas * cap_per_replica. "
-        "rho = load / capacity. delay = base_delay / (1 - rho) if rho &lt; 1 else max_delay. "
-        "loss = (load - capacity) / load when overloaded, else 0. violation = delay &gt; delay_budget or "
-        "loss &gt; loss_budget. One NFConfig per slice: URLLC tight delay (4x base), eMBB loose (30x base), "
-        "mMTC strict loss (0.5%).", body))
-    story.append(Paragraph("<b>Hindsight oracle (offline):</b> at step t, look at future per-slice load over "
-        "horizon H=5 (offset d=1), take the P95, required = ceil(P95 / (cap * target_util)). Label "
-        "up/down/hold vs the chosen action. Prescient — used only for scoring, never shown to the system.", body))
+    bullet = ParagraphStyle("bullet", parent=body, leftIndent=18, bulletIndent=4, spaceAfter=1)
+
+    def bl(items):
+        for it in items:
+            story.append(Paragraph("• " + it, bullet))
+
+    story.append(Paragraph("<b>Harness:</b> every controller is the same decide(obs) -&gt; action. "
+        "run_method feeds the action to the env and the oracle; metrics() aggregates.", body))
+    story.append(Image(os.path.join(REPO_ROOT, "docs", "harness.png"),
+                       width=12 * cm, height=6.9 * cm))
     story.append(Spacer(1, 4))
 
-    story.append(Paragraph("<b>threshold</b> — reactive; acts only after a violation, so always one step late.", body))
+    story.append(Paragraph("<b>Environment / capacity model</b>", body))
+    bl([
+        "state per slice = {load, replicas, delay, loss}",
+        "action = {slice: replicas}, clamped to [1, 5]",
+        "effective_capacity = replicas × cap_per_replica",
+        "rho (utilization) = load / effective_capacity",
+        "delay = base_delay / (1 − rho) when rho &lt; 1, else max_delay",
+        "loss = (load − capacity) / load when overloaded, else 0",
+        "violation = delay &gt; delay_budget OR loss &gt; loss_budget",
+        "NFConfig per slice: URLLC tight delay (4× base), eMBB loose (30× base), mMTC strict loss (0.5%)",
+    ])
+
+    story.append(Paragraph("<b>Hindsight oracle (offline)</b>", body))
+    bl([
+        "at step t, look at future per-slice load over horizon H=5 (offset d=1)",
+        "required = ceil(P95 / (cap × target_util))",
+        "label up/down/hold vs the chosen action",
+        "prescient — used only for scoring, never shown to the system",
+    ])
+
+    story.append(Spacer(1, 4))
+
+    story.append(Paragraph("<b>threshold</b>", body))
+    bl(["reactive — acts only after a violation", "always one step late"])
     story.append(Paragraph("if delay &gt; budget: replicas = required(load)<br/>"
                            "elif delay &lt; 0.5*budget and replicas &gt; min: replicas -= 1<br/>"
                            "else: hold", mono))
-    story.append(Paragraph("<b>hpa</b> — ideal controller; always matches the capacity model (mae 0). Its "
-        "residual violation is the max_replicas=5 cap at peak load.", body))
+
+    story.append(Paragraph("<b>hpa</b>", body))
+    bl(["ideal controller — always matches the capacity model (mae 0)",
+        "residual violation = the max_replicas=5 cap at peak load"])
     story.append(Paragraph("replicas = required(load) = ceil(load / (cap * target_util))", mono))
-    story.append(Paragraph("<b>predict-then-threshold</b> — ML baseline: linear forecaster predicts next "
-        "aggregate load, a numpy MLP (load -&gt; delay) predicts delay, then a threshold decides. Degenerates "
-        "to HPA here because the MLP over-predicts delay, so it almost always scales up.", body))
+
+    story.append(Paragraph("<b>predict-then-threshold</b>", body))
+    bl(["linear forecaster predicts next aggregate load",
+        "numpy MLP (load -&gt; delay) predicts delay, then a threshold decides",
+        "degenerates to HPA: the MLP over-predicts delay, so it almost always scales up"])
     story.append(Paragraph("pred_delay = mlp(forecaster(history))<br/>"
                            "if pred_delay &gt; budget: scale every slice to required(load)<br/>"
                            "elif pred_delay &lt; 0.5*budget: scale down<br/>else: hold", mono))
-    story.append(Paragraph("<b>llm-stub</b> — deterministic, no-network stand-in for the real LLM. Same "
-        "payload in, fixed rule out. Runs the 100-step loop instantly and reproducibly. Numbers are not "
-        "hand-set: the switch-case only picks the action; the env and oracle produce the metrics. It shares "
-        "the same required_replicas capacity model as the oracle, so it is a near-optimal upper-bound "
-        "reference — intentionally close to the solution, not a competitor to beat. It shows the ceiling "
-        "the model allows.", body))
+
+    story.append(Paragraph("<b>llm-stub</b>", body))
+    bl(["deterministic, no-network stand-in for the real LLM; same payload in, fixed rule out",
+        "numbers are not hand-set: the switch-case picks the action, the env + oracle produce the metrics",
+        "shares the required_replicas capacity model with the oracle, so it is a near-optimal upper-bound "
+        "reference — intentionally close to the solution, not a competitor to beat"])
     story.append(Paragraph("if p_violation &gt; 0.5 and required &gt; current: replicas = required<br/>"
                            "elif p_violation &lt; 0.1 and current &gt; min: replicas -= 1<br/>"
                            "else: hold", mono))
-    story.append(Paragraph("<b>llm-real</b> — glm-5.3-flash:cloud via Ollama (OpenAI-compatible, localhost, "
-        "no token), temperature 0. Receives the per-slice payload + ML signals and outputs JSON "
-        "{actions, reason}. ~6 s per decision. Conservative: over-provisions (over=0.96) to keep violation "
-        "at 7.7%.", body))
+
+    story.append(Paragraph("<b>llm-real</b>", body))
+    bl(["glm-5.3-flash:cloud via Ollama (OpenAI-compatible, localhost, no token), temperature 0",
+        "receives the per-slice payload + ML signals, outputs JSON {actions, reason}",
+        "~6 s per decision",
+        "conservative: over-provisions (over=0.96) to keep violation at 7.7%"])
     story.append(Spacer(1, 8))
 
     # 4. Metrics and why

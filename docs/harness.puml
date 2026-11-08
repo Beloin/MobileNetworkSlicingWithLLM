@@ -1,0 +1,22 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultFontSize 11
+skinparam sequenceMessageAlign center
+
+actor Controller as C
+participant "run_method" as R
+participant "env\n(capacity model)" as E
+participant "hindsight oracle\n(offline)" as O
+participant "metrics" as M
+
+loop each step t
+  C -> R : decide(obs) -> action
+  R -> E : step(action)
+  E --> R : delay / loss / violation
+  R -> O : score(action) vs future P95
+  O --> R : required, up/down/hold
+  R -> M : record
+end
+
+M -> M : aggregate (viol%, repl, under, over, mae)
+@enduml

@@ -1,0 +1,581 @@
+{
+ "glm-5.3-flash:cloud|no-tool": [
+  {
+   "i": 0,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 10,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 20,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 30,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 40,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "i": 50,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 60,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "i": 70,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 80,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 1.0,
+   "mae": 1.0,
+   "tools_used": []
+  }
+ ],
+ "glm-5.3-flash:cloud|inspect": [
+  {
+   "i": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 10,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 20,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 30,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 40,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 50,
+   "over": 0.0,
+   "under": 1.0,
+   "mae": 1.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 60,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 70,
+   "over": 0.0,
+   "under": 0.3333333333333333,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 80,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "deepseek-v4-pro:cloud|no-tool": [
+  {
+   "i": 0,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "i": 10,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "i": 20,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 30,
+   "over": 2.0,
+   "under": 0.0,
+   "mae": 2.0,
+   "tools_used": []
+  },
+  {
+   "i": 40,
+   "over": 1.6666666666666667,
+   "under": 0.0,
+   "mae": 1.6666666666666667,
+   "tools_used": []
+  },
+  {
+   "i": 50,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "i": 60,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "i": 70,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "i": 80,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  }
+ ],
+ "deepseek-v4-pro:cloud|inspect": [
+  {
+   "i": 0,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 10,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure"
+   ]
+  },
+  {
+   "i": 20,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 30,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 40,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 50,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 60,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 70,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 80,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ],
+ "glm-5.3:cloud|no-tool": [
+  {
+   "i": 0,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "i": 10,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": []
+  },
+  {
+   "i": 20,
+   "over": 1.0,
+   "under": 0.3333333333333333,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 30,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 40,
+   "over": 1.3333333333333333,
+   "under": 0.0,
+   "mae": 1.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 50,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 60,
+   "over": 0.6666666666666666,
+   "under": 0.0,
+   "mae": 0.6666666666666666,
+   "tools_used": []
+  },
+  {
+   "i": 70,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": []
+  },
+  {
+   "i": 80,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": []
+  }
+ ],
+ "glm-5.3:cloud|inspect": [
+  {
+   "i": 0,
+   "over": 1.0,
+   "under": 0.0,
+   "mae": 1.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 10,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 20,
+   "over": 0.3333333333333333,
+   "under": 0.0,
+   "mae": 0.3333333333333333,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 30,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 40,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 50,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 60,
+   "over": 0.0,
+   "under": 0.0,
+   "mae": 0.0,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 70,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 80,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  },
+  {
+   "i": 90,
+   "over": 0.0,
+   "under": 0.6666666666666666,
+   "mae": 0.6666666666666666,
+   "tools_used": [
+    "inspect_infrastructure",
+    "scale_replicas",
+    "scale_replicas",
+    "scale_replicas"
+   ]
+  }
+ ]
+}

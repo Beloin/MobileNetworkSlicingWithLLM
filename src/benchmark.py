@@ -9,7 +9,7 @@ from .forecaster import LinearForecaster
 from .kpi_predictor import MLPRegressor, violation_prob
 from .oracle import oracle_slices
 from .baselines import ThresholdStateMachine, HPA, PredictThenThreshold
-from .llm_compiler import build_payload, call_llm
+from .llm_compiler import build_payload, call_stub
 
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +19,7 @@ DEFAULT_DIR = os.path.join(
 
 
 def build_cfgs(states, delays):
-    base = float(np.min(delays)) if delays else 0.001
+    base = float(np.min(delays)) if len(delays) else 0.001
     lbs = loads_by_slice(states)
     caps = {}
     for s in cm.SLICES:
@@ -29,7 +29,7 @@ def build_cfgs(states, delays):
 
 
 def build_agg_nf(states, delays):
-    base = float(np.min(delays)) if delays else 0.001
+    base = float(np.min(delays)) if len(delays) else 0.001
     agg = [sum(st.values()) for st in states]
     p95 = float(np.percentile(agg, 95)) if agg else 1.0
     return cm.NFConfig(cap_per_replica_mbps=p95 / (5 * 0.7), base_delay=base,
@@ -105,7 +105,7 @@ def make_methods(cfgs, agg_nf, predictor):
         fc = forecaster.predict(history)
         pv = violation_prob(float(predictor.predict([fc])[0]), agg_nf.delay_budget)
         payload = build_payload(obs, fc, pv, cfgs)
-        return call_llm(payload, cfgs)["actions"]
+        return call_stub(payload, cfgs)["actions"]
 
     return {
         "threshold": ts.decide,

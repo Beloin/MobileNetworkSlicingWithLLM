@@ -10,7 +10,7 @@ from src.baselines import ThresholdStateMachine, HPA, PredictThenThreshold
 from src.forecaster import LinearForecaster
 from src.kpi_predictor import MLPRegressor
 from src.mcp_server import call_tool
-from src.llm_compiler import build_payload, call_llm
+from src.llm_compiler import build_payload, call_stub
 from src import benchmark as bench
 
 DATA = os.path.join(
@@ -92,7 +92,7 @@ def test_llm_payload_and_stub():
                                  "delay": 0.001, "loss": 0.0} for s in cm.SLICES}}
     payload = build_payload(obs, 100.0, 0.5, cfgs)
     assert set(payload["slices"].keys()) == set(cm.SLICES)
-    r = call_llm(payload, cfgs)
+    r = call_stub(payload, cfgs)
     assert set(r["actions"].keys()) == set(cm.SLICES)
     assert all(1 <= r["actions"][s] <= 5 for s in cm.SLICES)
 
