@@ -33,12 +33,12 @@ method                  viol%  repl  under  over   mae
 threshold                24.7  2.50   1.11  0.11  0.49
 hpa                      15.7  2.63   0.95  0.08  0.00
 predict-then-threshold   15.7  2.63   0.95  0.08  0.00
-llm-stub                  1.0  3.73   0.16  0.38  1.10
+capacity-rule            1.0  3.73   0.16  0.38  1.10
 llm-real-flash            7.7  3.93   0.53  0.96  1.48
 ```
 
 - Real LLM beats threshold and HPA on violation, at higher replica cost.
-- Stub shares the oracle's capacity model (`required_replicas`), so it is a
+- capacity-rule shares the oracle's capacity model (`required_replicas`), so it is a
   near-optimal upper-bound reference, not a competitor to beat. Intentionally
   close to the solution — it shows the ceiling the model allows.
 

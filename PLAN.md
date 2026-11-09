@@ -244,15 +244,15 @@ SimPy (discrete-event) or local K8s (kind) with Open5GS + UERANSIM: apply the ac
 | threshold | 24.7 | 2.50 | 1.11 | 0.11 | 0.49 |
 | hpa | 15.7 | 2.63 | 0.95 | 0.08 | 0.00 |
 | predict-then-threshold | 15.7 | 2.63 | 0.95 | 0.08 | 0.00 |
-| llm-stub | 1.0 | 3.73 | 0.16 | 0.38 | 1.10 |
+| capacity-rule | 1.0 | 3.73 | 0.16 | 0.38 | 1.10 |
 | llm-real-flash | 7.7 | 3.93 | 0.53 | 0.96 | 1.48 |
 
 Per RQ:
-- **RQ2**: real LLM under-scales 0.53 but over-scales 0.96 — conservative, leaves ~1 replica of headroom. Stub is exact (over 0.38).
+- **RQ2**: real LLM under-scales 0.53 but over-scales 0.96 — conservative, leaves ~1 replica of headroom. capacity-rule is exact (over 0.38).
 - **RQ3**: latencies — glm-5.3-flash 4.4s, deepseek-v4-pro 7.1s, glm-5.3 8.4s, mistral-large-4 22.7s. mistral ~2x tokens, same decisions as the others.
 - **RQ4**: both actuation paths wired. MCP typed tools enforce bounds (scale_replicas rejects 99). YAML manifest parsed + gate-checked.
 - **RQ5**: with the `estimate_capacity` tool (MCP tool-calling, not plain JSON) the LLM's MAE drops 1.18 -> 0.20 and cost 3.47 -> 2.55 replicas, but violation rises 6.7% -> 11.7% — the tool makes it exact, not safer.
-- **RQ6**: real LLM beats threshold (7.7 vs 24.7) and HPA (7.7 vs 15.7) on violation, at higher cost (3.93 vs 2.63 replicas). Stub (exact capacity-model rule) beats all (1.0%).
+- **RQ6**: real LLM beats threshold (7.7 vs 24.7) and HPA (7.7 vs 15.7) on violation, at higher cost (3.93 vs 2.63 replicas). capacity-rule (exact capacity-model rule) beats all (1.0%).
 
 **Caveats:**
 - Only flash ran the full 100-step loop; the other 3 LLMs are single-shot (4 states each).

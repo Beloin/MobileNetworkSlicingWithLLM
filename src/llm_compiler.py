@@ -110,9 +110,9 @@ SYSTEM_TOOL = (
     "You are the Tier-2 compiler of a 6G network-slicing control plane. "
     "You receive per-slice telemetry (eMBB, URLLC, mMTC): load (Mbps), current "
     "replicas, current delay/loss, KPI targets, and ML signals. Use the provided "
-    "tools to compute the correct replica count, then output ONLY a JSON object: "
-    '{"actions": {"eMBB": <int>, "URLLC": <int>, "mMTC": <int>}, "reason": "<short>"}. '
-    "Replica counts are integers in [1,5]. No prose outside the JSON."
+    "tools to compute the correct replica count. Then act: call scale_replicas "
+    "once per slice (eMBB, URLLC, mMTC) with the replica count you decide. "
+    "Do not output text or JSON - your scale_replicas calls are the answer."
 )
 
 
@@ -147,42 +147,33 @@ def call_llm_with_tools(model, payload, cfgs, tool_names,
         data = _post(messages, tools=tools, base=base, key=key or "", model=model)
         usage = data.get("usage", {})
         msg = data["choices"][0]["message"]
-        if msg.get("tool_calls"):
-            messages.append({"role": "assistant", "content": msg.get("content") or "",
-                             "tool_calls": msg["tool_calls"]})
-            for tc in msg["tool_calls"]:
-                fn = tc["function"]
-                name = fn["name"]
-                try:
-                    args = json.loads(fn.get("arguments") or "{}")
-                except json.JSONDecodeError:
-                    args = {}
-                try:
-                    result = call_tool(name, args, cfgs)
-                except Exception as e:
-                    result = {"error": str(e)}
-                used.append(name)
-                trace.append({"name": name, "args": args, "result": result})
-                messages.append({"role": "tool",
-                                 "tool_call_id": tc.get("id", f"call_{len(used)}"),
-                                 "content": json.dumps(result)})
-            continue
-        content = msg.get("content") or ""
-        start, end = content.find("{"), content.rfind("}")
-        obj = {}
-        if start >= 0 and end >= 0:
+        if not msg.get("tool_calls"):
+            break  # model done; the decision is in the tool-call history
+        messages.append({"role": "assistant", "content": msg.get("content") or "",
+                         "tool_calls": msg["tool_calls"]})
+        for tc in msg["tool_calls"]:
+            fn = tc["function"]
+            name = fn["name"]
             try:
-                obj = json.loads(content[start:end + 1])
+                args = json.loads(fn.get("arguments") or "{}")
             except json.JSONDecodeError:
-                obj = {}
-        actions = {}
-        for s in SLICES:
+                args = {}
             try:
-                actions[s] = int(obj.get("actions", {}).get(s, payload["slices"][s]["replicas"]))
-            except (TypeError, ValueError):
-                actions[s] = payload["slices"][s]["replicas"]
-        return {"model": model, "actions": actions,
-                "reason": obj.get("reason", ""), "raw": content,
-                "tools_used": used, "trace": trace, "usage": usage,
-                "latency_ms": (time.time() - t0) * 1000.0}
-    raise RuntimeError("tool loop exceeded max_rounds")
+                result = call_tool(name, args, cfgs)
+            except Exception as e:
+                result = {"error": str(e)}
+            used.append(name)
+            trace.append({"name": name, "args": args, "result": result})
+            messages.append({"role": "tool",
+                             "tool_call_id": tc.get("id", f"call_{len(used)}"),
+                             "content": json.dumps(result)})
+    # derive the action from the last successful scale_replicas call per slice
+    actions = {s: payload["slices"][s]["replicas"] for s in SLICES}
+    for tc in trace:
+        if tc["name"] == "scale_replicas":
+            st = tc["args"].get("slice_type")
+            if st in SLICES and tc["result"].get("ok"):
+                actions[st] = tc["result"]["replicas"]
+    return {"model": model, "actions": actions, "reason": "tool-calls",
+            "raw": "", "tools_used": used, "trace": trace, "usage": usage,
+            "latency_ms": (time.time() - t0) * 1000.0}

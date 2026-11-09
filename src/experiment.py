@@ -19,7 +19,7 @@ from .mcp_server import call_tool
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_DIR = os.path.join(REPO_ROOT, "results")
 MODELS = ["glm-5.3-flash:cloud", "glm-5.3:cloud",
-          "mistral-large-4:cloud", "deepseek-v4-pro:cloud"]
+          "deepseek-v4-pro:cloud"]
 
 
 def scenarios(states):

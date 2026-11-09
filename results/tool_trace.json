@@ -3,7 +3,7 @@
   {
    "i": 0,
    "actions": {
-    "eMBB": 1,
+    "eMBB": 2,
     "URLLC": 1,
     "mMTC": 1
    },
@@ -97,14 +97,50 @@
        }
       }
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
   {
    "i": 10,
    "actions": {
-    "eMBB": 2,
-    "URLLC": 2,
+    "eMBB": 1,
+    "URLLC": 1,
     "mMTC": 3
    },
    "trace": [
@@ -201,25 +237,25 @@
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 2,
+      "replicas": 1,
       "slice_type": "eMBB"
      },
      "result": {
       "ok": true,
       "slice_type": "eMBB",
-      "replicas": 2
+      "replicas": 1
      }
     },
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 2,
+      "replicas": 1,
       "slice_type": "URLLC"
      },
      "result": {
       "ok": true,
       "slice_type": "URLLC",
-      "replicas": 2
+      "replicas": 1
      }
     },
     {
@@ -369,6 +405,42 @@
       "slice_type": "mMTC",
       "replicas": 1
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
@@ -376,7 +448,7 @@
    "i": 30,
    "actions": {
     "eMBB": 3,
-    "URLLC": 2,
+    "URLLC": 3,
     "mMTC": 1
    },
    "trace": [
@@ -384,44 +456,49 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "aggregate_forecast_mbps": 240.75,
-       "p_violation": 0.9134124226489863,
+       "ml": {
+        "aggregate_forecast_mbps": 240.74999999999986,
+        "p_violation": 0.9134124226489863
+       },
        "slices": {
         "URLLC": {
-         "current_replicas": 1,
          "kpi_now": {
           "delay": 0.00213,
-          "loss": 0.0376
+          "loss": 0.03761904761904765
          },
          "kpi_target": {
           "delay": 0.000852,
           "loss": 0.005
          },
-         "load_mbps": 105
+         "load_mbps": 105,
+         "max_replicas": 5,
+         "replicas": 1
         },
         "eMBB": {
-         "current_replicas": 1,
          "kpi_now": {
           "delay": 0.01065,
-          "loss": 0.2245
+          "loss": 0.2244897959183674
          },
          "kpi_target": {
           "delay": 0.00639,
           "loss": 0.02
          },
-         "load_mbps": 126
+         "load_mbps": 126,
+         "max_replicas": 5,
+         "replicas": 1
         },
         "mMTC": {
-         "current_replicas": 1,
          "kpi_now": {
-          "delay": 0.000277,
+          "delay": 0.00027714993481095176,
           "loss": 0
          },
          "kpi_target": {
           "delay": 0.003195,
           "loss": 0.005
          },
-         "load_mbps": 6.6
+         "load_mbps": 6.6,
+         "max_replicas": 5,
+         "replicas": 1
         }
        }
       }
@@ -480,13 +557,13 @@
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 2,
+      "replicas": 3,
       "slice_type": "URLLC"
      },
      "result": {
       "ok": true,
       "slice_type": "URLLC",
-      "replicas": 2
+      "replicas": 3
      }
     },
     {
@@ -652,7 +729,7 @@
      "args": {
       "state": {
        "ml": {
-        "aggregate_forecast_mbps": 371.42999999999995,
+        "aggregate_forecast_mbps": 371.43,
         "p_violation": 0.7204140651849816
        },
        "slices": {
@@ -735,6 +812,114 @@
         "loss_budget": 0.005
        }
       }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
      }
     },
     {
@@ -908,6 +1093,42 @@
       "slice_type": "mMTC",
       "replicas": 1
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
@@ -923,10 +1144,8 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "ml": {
-        "aggregate_forecast_mbps": 502.91999999999996,
-        "p_violation": 0.6699094579166757
-       },
+       "aggregate_forecast_mbps": 502.91999999999996,
+       "p_violation": 0.6699094579166757,
        "slices": {
         "URLLC": {
          "kpi_now": {
@@ -1032,6 +1251,18 @@
       "slice_type": "URLLC",
       "replicas": 5
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
@@ -1048,7 +1279,7 @@
      "args": {
       "state": {
        "ml": {
-        "aggregate_forecast_mbps": 601.7999999999997,
+        "aggregate_forecast_mbps": 601.8,
         "p_violation": 0.628106278405011
        },
        "slices": {
@@ -1087,7 +1318,7 @@
           "delay": 0.003195,
           "loss": 0.005
          },
-         "load_mbps": 8.600000000000001,
+         "load_mbps": 8.6,
          "max_replicas": 5,
          "replicas": 1
         }
@@ -1184,8 +1415,8 @@
      "args": {
       "state": {
        "ml": {
-        "aggregate_forecast_mbps": 688.69,
-        "p_violation": 0.5897
+        "aggregate_forecast_mbps": 688.6899999999998,
+        "p_violation": 0.5896936164579142
        },
        "slices": {
         "URLLC": {
@@ -1198,6 +1429,7 @@
           "loss": 0.005
          },
          "load_mbps": 336,
+         "max_replicas": 5,
          "replicas": 1
         },
         "eMBB": {
@@ -1210,6 +1442,7 @@
           "loss": 0.02
          },
          "load_mbps": 342,
+         "max_replicas": 5,
          "replicas": 1
         },
         "mMTC": {
@@ -1222,6 +1455,7 @@
           "loss": 0.005
          },
          "load_mbps": 6.8,
+         "max_replicas": 5,
          "replicas": 1
         }
        }
@@ -1301,6 +1535,78 @@
       "slice_type": "mMTC",
       "replicas": 1
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   }
@@ -1318,31 +1624,44 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "slices": {
-        "URLLC": {
-         "kpi_now": {
-          "delay": 0.00022885326953748006,
-          "loss": 0
-         },
-         "load_mbps": 7,
-         "replicas": 1
+       "URLLC": {
+        "kpi_now": {
+         "delay": 0.00022885326953748006,
+         "loss": 0
         },
-        "eMBB": {
-         "kpi_now": {
-          "delay": 0.00033725000000000004,
-          "loss": 0
-         },
-         "load_mbps": 36,
-         "replicas": 1
+        "kpi_target": {
+         "delay": 0.000852,
+         "loss": 0.005
         },
-        "mMTC": {
-         "kpi_now": {
-          "delay": 0.00025186492890995257,
-          "loss": 0
-         },
-         "load_mbps": 4.3999999999999995,
-         "replicas": 1
-        }
+        "load_mbps": 7,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "eMBB": {
+        "kpi_now": {
+         "delay": 0.00033725000000000004,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.00639,
+         "loss": 0.02
+        },
+        "load_mbps": 36,
+        "max_replicas": 5,
+        "replicas": 1
+       },
+       "mMTC": {
+        "kpi_now": {
+         "delay": 0.00025186492890995257,
+         "loss": 0
+        },
+        "kpi_target": {
+         "delay": 0.003195,
+         "loss": 0.005
+        },
+        "load_mbps": 4.3999999999999995,
+        "max_replicas": 5,
+        "replicas": 1
        }
       }
      },
@@ -1384,6 +1703,42 @@
        }
       }
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
@@ -1400,39 +1755,18 @@
      "args": {
       "state": {
        "URLLC": {
-        "kpi_now": {
-         "delay": 0.0003874644464446445,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
         "load_mbps": 45.5,
+        "max_replicas": 5,
         "replicas": 1
        },
        "eMBB": {
-        "kpi_now": {
-         "delay": 0.00033725000000000004,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
-        },
         "load_mbps": 36,
+        "max_replicas": 5,
         "replicas": 1
        },
        "mMTC": {
-        "kpi_now": {
-         "delay": 0.00426,
-         "loss": 0.42971428571428566
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
-        },
         "load_mbps": 50,
+        "max_replicas": 5,
         "replicas": 1
        }
       }
@@ -1479,18 +1813,6 @@
     {
      "name": "scale_replicas",
      "args": {
-      "slice_type": "mMTC",
-      "replicas": 3
-     },
-     "result": {
-      "ok": true,
-      "slice_type": "mMTC",
-      "replicas": 3
-     }
-    },
-    {
-     "name": "scale_replicas",
-     "args": {
       "slice_type": "eMBB",
       "replicas": 1
      },
@@ -1510,6 +1832,30 @@
       "ok": true,
       "slice_type": "URLLC",
       "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 3
      }
     }
    ]
@@ -1528,7 +1874,7 @@
       "state": {
        "URLLC": {
         "kpi_now": {
-         "delay": 0.007057,
+         "delay": 0.0070569,
          "loss": 0
         },
         "kpi_target": {
@@ -1637,18 +1983,6 @@
       "ok": true,
       "slice_type": "mMTC",
       "replicas": 1
-     }
-    },
-    {
-     "name": "scale_replicas",
-     "args": {
-      "replicas": 5,
-      "slice_type": "URLLC"
-     },
-     "result": {
-      "ok": true,
-      "slice_type": "URLLC",
-      "replicas": 5
      }
     }
    ]
@@ -1806,10 +2140,6 @@
          "delay": 0.00213,
          "loss": 0.38571428571428573
         },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
         "load_mbps": 164.5,
         "replicas": 1
        },
@@ -1818,10 +2148,6 @@
          "delay": 0.01065,
          "loss": 0.2244897959183674
         },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
-        },
         "load_mbps": 126,
         "replicas": 1
        },
@@ -1829,10 +2155,6 @@
         "kpi_now": {
          "delay": 0.0002582916160388822,
          "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
         },
         "load_mbps": 5.000000000000002,
         "replicas": 1
@@ -1928,17 +2250,22 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "URLLC": {
-        "load_mbps": 73.5,
-        "replicas": 1
-       },
-       "eMBB": {
-        "load_mbps": 216,
-        "replicas": 1
-       },
-       "mMTC": {
-        "load_mbps": 76,
-        "replicas": 1
+       "slices": {
+        "URLLC": {
+         "load_mbps": 73.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "load_mbps": 216,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "load_mbps": 76,
+         "max_replicas": 5,
+         "replicas": 1
+        }
        }
       }
      },
@@ -2033,14 +2360,17 @@
       "state": {
        "URLLC": {
         "load_mbps": 227.5,
+        "max_replicas": 5,
         "replicas": 1
        },
        "eMBB": {
         "load_mbps": 180,
+        "max_replicas": 5,
         "replicas": 1
        },
        "mMTC": {
         "load_mbps": 3.4,
+        "max_replicas": 5,
         "replicas": 1
        }
       }
@@ -2082,6 +2412,114 @@
         "loss_budget": 0.005
        }
       }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "eMBB",
+      "replicas": 3
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "URLLC",
+      "replicas": 4
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "slice_type": "mMTC",
+      "replicas": 1
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
      }
     },
     {
@@ -2270,41 +2708,50 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "URLLC": {
-        "kpi_now": {
-         "delay": 0.00213,
-         "loss": 0.7023564064801178
-        },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
-        "load_mbps": 339.5,
-        "replicas": 1
+       "ml": {
+        "aggregate_forecast_mbps": 601.7999999999997,
+        "p_violation": 0.628106278405011
        },
-       "eMBB": {
-        "kpi_now": {
-         "delay": 0.01065,
-         "loss": 0.5824175824175823
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.7023564064801178
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 339.5,
+         "max_replicas": 5,
+         "replicas": 1
         },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5824175824175823
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 234,
+         "max_replicas": 5,
+         "replicas": 1
         },
-        "load_mbps": 234,
-        "replicas": 1
-       },
-       "mMTC": {
-        "kpi_now": {
-         "delay": 0.0003049842180774749,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
-        },
-        "load_mbps": 8.600000000000001,
-        "replicas": 1
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0003049842180774749,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 8.600000000000001,
+         "max_replicas": 5,
+         "replicas": 1
+        }
        }
       }
      },
@@ -2397,44 +2844,50 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "URLLC": {
-        "kpi_now": {
-         "delay": 0.00213,
-         "loss": 0.6992559523809524
-        },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
-        "load_mbps": 336,
-        "max_replicas": 5,
-        "replicas": 1
+       "ml": {
+        "aggregate_forecast_mbps": 688.6899999999998,
+        "p_violation": 0.5896936164579142
        },
-       "eMBB": {
-        "kpi_now": {
-         "delay": 0.01065,
-         "loss": 0.7142857142857143
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6992559523809524
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 336,
+         "max_replicas": 5,
+         "replicas": 1
         },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.7142857142857143
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 342,
+         "max_replicas": 5,
+         "replicas": 1
         },
-        "load_mbps": 342,
-        "max_replicas": 5,
-        "replicas": 1
-       },
-       "mMTC": {
-        "kpi_now": {
-         "delay": 0.0002797026315789474,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
-        },
-        "load_mbps": 6.8,
-        "max_replicas": 5,
-        "replicas": 1
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.0002797026315789474,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 6.8,
+         "max_replicas": 5,
+         "replicas": 1
+        }
        }
       }
      },
@@ -2520,54 +2973,59 @@
   {
    "i": 0,
    "actions": {
-    "eMBB": 1,
-    "URLLC": 1,
-    "mMTC": 1
+    "eMBB": 5,
+    "URLLC": 5,
+    "mMTC": 5
    },
    "trace": [
     {
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "URLLC": {
-        "kpi_now": {
-         "delay": 0.00022885326953748006,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
-        "load_mbps": 7,
-        "replicas": 1
-       },
-       "eMBB": {
-        "kpi_now": {
-         "delay": 0.00033725,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
-        },
-        "load_mbps": 36,
-        "replicas": 1
-       },
-       "mMTC": {
-        "kpi_now": {
-         "delay": 0.00025186492890995257,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
-        },
-        "load_mbps": 4.4,
-        "replicas": 1
-       },
        "ml": {
         "aggregate_forecast_mbps": 47.4,
         "p_violation": 0.9977800175194619
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00022885326953748006,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 7,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.00033725000000000004,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 36,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025186492890995257,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 4.3999999999999995,
+         "max_replicas": 5,
+         "replicas": 1
+        }
        }
       }
      },
@@ -2613,37 +3071,49 @@
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 1,
+      "replicas": 5,
       "slice_type": "eMBB"
      },
      "result": {
       "ok": true,
       "slice_type": "eMBB",
-      "replicas": 1
+      "replicas": 5
      }
     },
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 1,
+      "replicas": 5,
       "slice_type": "URLLC"
      },
      "result": {
       "ok": true,
       "slice_type": "URLLC",
-      "replicas": 1
+      "replicas": 5
      }
     },
     {
      "name": "scale_replicas",
      "args": {
-      "replicas": 1,
+      "replicas": 5,
       "slice_type": "mMTC"
      },
      "result": {
       "ok": true,
       "slice_type": "mMTC",
-      "replicas": 1
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 5
      }
     }
    ]
@@ -3189,6 +3659,42 @@
       "slice_type": "mMTC",
       "replicas": 1
      }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
+     }
     }
    ]
   },
@@ -3288,6 +3794,42 @@
         "loss_budget": 0.005
        }
       }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 4
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 2,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 2
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 4,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 4
      }
     },
     {
@@ -3476,48 +4018,50 @@
      "name": "inspect_infrastructure",
      "args": {
       "state": {
-       "URLLC": {
-        "kpi_now": {
-         "delay": 0.00213,
-         "loss": 0.6521514629948364
-        },
-        "kpi_target": {
-         "delay": 0.000852,
-         "loss": 0.005
-        },
-        "load_mbps": 290.5,
-        "max_replicas": 5,
-        "replicas": 1
-       },
-       "eMBB": {
-        "kpi_now": {
-         "delay": 0.01065,
-         "loss": 0.5064935064935066
-        },
-        "kpi_target": {
-         "delay": 0.00639,
-         "loss": 0.02
-        },
-        "load_mbps": 198,
-        "max_replicas": 5,
-        "replicas": 1
-       },
-       "mMTC": {
-        "kpi_now": {
-         "delay": 0.00025829161603888214,
-         "loss": 0
-        },
-        "kpi_target": {
-         "delay": 0.003195,
-         "loss": 0.005
-        },
-        "load_mbps": 5,
-        "max_replicas": 5,
-        "replicas": 1
-       },
        "ml": {
-        "aggregate_forecast_mbps": 502.92,
+        "aggregate_forecast_mbps": 502.91999999999996,
         "p_violation": 0.6699094579166757
+       },
+       "slices": {
+        "URLLC": {
+         "kpi_now": {
+          "delay": 0.00213,
+          "loss": 0.6521514629948364
+         },
+         "kpi_target": {
+          "delay": 0.000852,
+          "loss": 0.005
+         },
+         "load_mbps": 290.5,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "eMBB": {
+         "kpi_now": {
+          "delay": 0.01065,
+          "loss": 0.5064935064935066
+         },
+         "kpi_target": {
+          "delay": 0.00639,
+          "loss": 0.02
+         },
+         "load_mbps": 198,
+         "max_replicas": 5,
+         "replicas": 1
+        },
+        "mMTC": {
+         "kpi_now": {
+          "delay": 0.00025829161603888214,
+          "loss": 0
+         },
+         "kpi_target": {
+          "delay": 0.003195,
+          "loss": 0.005
+         },
+         "load_mbps": 5,
+         "max_replicas": 5,
+         "replicas": 1
+        }
        }
       }
      },
@@ -3558,6 +4102,42 @@
         "loss_budget": 0.005
        }
       }
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 3,
+      "slice_type": "eMBB"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "eMBB",
+      "replicas": 3
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 5,
+      "slice_type": "URLLC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "URLLC",
+      "replicas": 5
+     }
+    },
+    {
+     "name": "scale_replicas",
+     "args": {
+      "replicas": 1,
+      "slice_type": "mMTC"
+     },
+     "result": {
+      "ok": true,
+      "slice_type": "mMTC",
+      "replicas": 1
      }
     },
     {
@@ -3650,7 +4230,7 @@
           "delay": 0.003195,
           "loss": 0.005
          },
-         "load_mbps": 8.6,
+         "load_mbps": 8.600000000000001,
          "max_replicas": 5,
          "replicas": 1
         }

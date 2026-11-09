@@ -94,45 +94,46 @@ md("""## 4. Tool harness, step by step
 
 `call_llm_with_tools` does a multi-round loop. We reconstruct it here so you
 see each round: the assistant asks for tool calls, we execute them against the
-MCP server, feed the results back, and the model gives the final JSON.""")
+MCP server, feed the results back. The answer is the model's `scale_replicas`
+calls — no JSON.""")
 code("""messages = [
     {"role": "system", "content": SYSTEM_TOOL},
     {"role": "user", "content": json.dumps(payload)},
 ]
 print("tool names sent:", [t["function"]["name"] for t in tools])
 
-content = None
+trace = []
 for round_ in range(4):
     data = _post(messages, tools=tools, model=MODEL)
     msg = data["choices"][0]["message"]
     print(f"\\n=== round {round_+1} — finish_reason: "
           f"{data['choices'][0].get('finish_reason')} ===")
-    if msg.get("tool_calls"):
-        print("assistant tool_calls:")
-        print(json.dumps(msg["tool_calls"], indent=2))
-        messages.append({"role": "assistant", "content": msg.get("content") or "",
-                         "tool_calls": msg["tool_calls"]})
-        for tc in msg["tool_calls"]:
-            fn = tc["function"]
-            name = fn["name"]
-            args = json.loads(fn.get("arguments") or "{}")
-            result = call_tool(name, args, cfgs)
-            print(f"--- execute {name}({args}) ->")
-            print(json.dumps(result, indent=2))
-            messages.append({"role": "tool", "tool_call_id": tc.get("id", f"c{round_}"),
-                             "content": json.dumps(result)})
-    else:
-        content = msg.get("content") or ""
-        print("final content:", content)
+    if not msg.get("tool_calls"):
+        print("no more tool calls — model done")
         break
+    print("assistant tool_calls:")
+    print(json.dumps(msg["tool_calls"], indent=2))
+    messages.append({"role": "assistant", "content": msg.get("content") or "",
+                     "tool_calls": msg["tool_calls"]})
+    for tc in msg["tool_calls"]:
+        fn = tc["function"]
+        name = fn["name"]
+        args = json.loads(fn.get("arguments") or "{}")
+        result = call_tool(name, args, cfgs)
+        trace.append({"name": name, "args": args, "result": result})
+        print(f"--- execute {name}({args}) ->")
+        print(json.dumps(result, indent=2))
+        messages.append({"role": "tool", "tool_call_id": tc.get("id", f"c{round_}"),
+                         "content": json.dumps(result)})
 
-if content:
-    try:
-        start, end = content.find("{"), content.rfind("}")
-        actions = json.loads(content[start:end + 1])["actions"]
-        print("actions:", actions)
-    except Exception as e:
-        print("could not parse JSON:", e)
+# the answer = the last successful scale_replicas call per slice
+actions = {s: payload["slices"][s]["replicas"] for s in cm.SLICES}
+for tc in trace:
+    if tc["name"] == "scale_replicas":
+        st = tc["args"].get("slice_type")
+        if st in cm.SLICES and tc["result"].get("ok"):
+            actions[st] = tc["result"]["replicas"]
+print("actions (from scale_replicas calls):", actions)
 """)
 
 nb = {

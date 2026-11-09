@@ -17,7 +17,7 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RESULTS_DIR = os.path.join(REPO_ROOT, "results")
 OUT = os.path.join(REPO_ROOT, "initial_results.pdf")
 MODELS = ["glm-5.3-flash:cloud", "glm-5.3:cloud",
-          "mistral-large-4:cloud", "deepseek-v4-pro:cloud"]
+          "deepseek-v4-pro:cloud"]
 
 
 def _fmt(x):
@@ -175,7 +175,7 @@ def build_pdf(res):
                            "if pred_delay &gt; budget: scale every slice to required(load)<br/>"
                            "elif pred_delay &lt; 0.5*budget: scale down<br/>else: hold", mono))
 
-    story.append(Paragraph("<b>llm-stub</b>", body))
+    story.append(Paragraph("<b>capacity-rule</b>", body))
     bl(["deterministic, no-network stand-in for the real LLM; same payload in, fixed rule out",
         "numbers are not hand-set: the switch-case picks the action, the env + oracle produce the metrics",
         "shares the required_replicas capacity model with the oracle, so it is a near-optimal upper-bound "
@@ -226,7 +226,8 @@ def build_pdf(res):
         mm = res["benchmark"][scen]
         rows = [["method", "viol%", "repl", "under", "over", "upRec", "upPrec", "holdOk", "mae"]]
         for m, met in mm.items():
-            rows.append([m, _fmt(met["viol%"]), _fmt(met["avg_replicas"]),
+            label = "capacity-rule" if m == "llm-stub" else m
+            rows.append([label, _fmt(met["viol%"]), _fmt(met["avg_replicas"]),
                          _fmt(met["under"]), _fmt(met["over"]),
                          _fmt(met["up_recall"]), _fmt(met["up_prec"]),
                          _fmt(met["hold_ok"]), _fmt(met["mae"])])

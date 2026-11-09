@@ -1,0 +1,31 @@
+# MobileNetworkSlicingWithLLM
+
+> Two-tier control plane for 6G network slicing: fast ML (forecaster + KPI predictor) plus an analytic capacity model in Tier 1; an LLM (Ollama cloud: glm-5.3-flash, glm-5.3, deepseek-v4-pro, mistral-large-4) acting through typed MCP tools in Tier 2; a verification gate; and an offline hindsight oracle that scores decisions. Research prototype for a master's thesis on wireless networks — evaluates whether an LLM can turn ML signals + KPIs + cluster state into correct, safe per-slice replica decisions.
+
+This is a simulation, not a live system. There is no real Kubernetes cluster and no real KPI telemetry: delay/loss/violation are always recomputed from the analytic capacity model, and the dataset supplies only the per-slice load. The LLM's accuracy comes from the MCP tools (`inspect_infrastructure` exposes required replicas, headroom, utilization), not from the model itself or from prompt wording. Core code is numpy + stdlib only; notebooks and PDFs use a `.venv` with jupyter/pandas/matplotlib/reportlab.
+
+## Getting started
+
+- [README](README.md): Architecture, per-slice results table, LLM models and latencies, and the commands to run the prototype.
+
+## Findings & state (read first after context loss)
+
+- [docs/findings.md](docs/findings.md): Consolidated knowledge — components, all experiment results, RQ1–RQ6 answers, decisions made, and exactly what needs re-running for final results.
+
+## Research plan
+
+- [PLAN.md](PLAN.md): Full 15-section plan — contributions, research questions, system design, verification gate, oracle, metrics, and the implementation findings.
+
+## Pipeline
+
+- [timeline.md](timeline.md): Pipeline steps (runtime data flow + build order) with completion status.
+
+## Literature
+
+- [papers/reference_matrix.md](papers/reference_matrix.md): Related-work cross-reference table + BibTeX (DeepSlice, AutoRAN, Farreras, AdapShare, others).
+
+## Optional
+
+- [docs/llms-full.txt](docs/llms-full.txt): Full content of all docs inlined — the expanded version of this file, for agents that need everything in one file.
+- [notebooks/eda.ipynb](notebooks/eda.ipynb): Dataset EDA with pandas head + a manual walk of the full pipeline (executed, outputs inlined).
+- [notebooks/llm_harness.ipynb](notebooks/llm_harness.ipynb): Step-by-step reconstruction of the LLM tool-calling harness (executed, outputs inlined).

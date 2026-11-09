@@ -111,5 +111,5 @@ def make_methods(cfgs, agg_nf, predictor):
         "threshold": ts.decide,
         "hpa": hpa.decide,
         "predict-then-threshold": ptt.decide,
-        "llm-stub": llm,
+        "capacity-rule": llm,
     }

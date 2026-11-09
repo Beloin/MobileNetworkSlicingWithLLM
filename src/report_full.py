@@ -24,7 +24,7 @@ RESULTS_DIR = os.path.join(REPO_ROOT, "results")
 OUT = os.path.join(REPO_ROOT, "analysis.pdf")
 DATA = bench.DEFAULT_DIR
 MODELS = ["glm-5.3-flash:cloud", "glm-5.3:cloud",
-          "mistral-large-4:cloud", "deepseek-v4-pro:cloud"]
+          "deepseek-v4-pro:cloud"]
 FAST_MODELS = ["glm-5.3-flash:cloud", "deepseek-v4-pro:cloud", "glm-5.3:cloud"]
 
 
@@ -170,7 +170,7 @@ def build_pdf():
     # 3. Pipeline + harness
     S.append(Paragraph("3. Pipeline + harness", h2))
     for line in [
-        "dataset sample -> per-slice load -> Tier1 (forecaster + MLP) -> payload -> LLM (or stub) -> gate -> apply",
+        "dataset sample -> per-slice load -> Tier1 (forecaster + MLP) -> payload -> LLM (or capacity-rule) -> gate -> apply",
         "hindsight oracle (offline): future-load P95 -> required replicas, scores under/over-scaling",
         "every controller is decide(obs) -> action; run_method feeds it to env + oracle; metrics() aggregates",
     ]:
@@ -185,7 +185,7 @@ def build_pdf():
         "<b>threshold</b> — reactive: scale only after a violation.",
         "<b>hpa</b> — ideal controller, always required_replicas(load).",
         "<b>predict-then-threshold</b> — MLP delay prediction then threshold (degenerates to HPA).",
-        "<b>llm-stub</b> — deterministic rule, near-optimal reference (shares the capacity model).",
+        "<b>capacity-rule</b> — deterministic rule, near-optimal reference (shares the capacity model).",
         "<b>llm-real</b> — Ollama cloud LLM, JSON or MCP tool-calling.",
     ]:
         S.append(Paragraph("• " + m, bullet))
@@ -195,10 +195,11 @@ def build_pdf():
     S.append(Paragraph("5. LLMs, prompt, tools", h2))
     S.append(Paragraph("Models (Ollama cloud, localhost, OpenAI-compatible, temp 0): "
                        + ", ".join(MODELS), body))
-    S.append(Paragraph("<b>Note:</b> mistral-large-4 is excluded from the tool and scenario experiments — "
-                       "~3x slower and ~2x more tokens than the others while returning the same decisions.", body))
+    S.append(Paragraph("<b>Note:</b> mistral-large-4 is excluded — ~3x slower and ~2x more tokens "
+                       "than the others while returning the same decisions.", body))
     S.append(Paragraph("System prompt (tool mode):", body))
-    S.append(Preformatted(SYSTEM_TOOL, mono))
+    prompt_esc = (SYSTEM_TOOL.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
+    S.append(Paragraph(prompt_esc, mono))
     S.append(Spacer(1, 4))
     tools = [
         ["tool", "does"],
@@ -247,7 +248,8 @@ def build_pdf():
         S.append(Paragraph(f"Scenario: <b>{scen}</b>", body))
         rows = [["method", "viol%", "repl", "under", "over", "mae"]]
         for m, met in exp["benchmark"][scen].items():
-            rows.append([m, _fmt(met["viol%"]), _fmt(met["avg_replicas"]),
+            label = "capacity-rule" if m == "llm-stub" else m
+            rows.append([label, _fmt(met["viol%"]), _fmt(met["avg_replicas"]),
                          _fmt(met["under"]), _fmt(met["over"]), _fmt(met["mae"])])
         S.append(grid(rows, [3.6 * cm] + [2.0 * cm] * 5))
         S.append(Spacer(1, 4))
