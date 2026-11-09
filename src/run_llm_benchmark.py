@@ -65,6 +65,7 @@ def main():
                     dt = time.time() - t0
                     print(f"  {scen}|{label} step {count['n']}/{len(sstates)} "
                           f"({dt:.0f}s, {dt/count['n']:.1f}s/step)", flush=True)
+                time.sleep(5)  # space out POSTs to stay under rate limits
                 return r["actions"]
 
             out = bench.run_method(sstates, cfgs, decide)

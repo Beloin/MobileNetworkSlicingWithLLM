@@ -116,7 +116,7 @@ SYSTEM_TOOL = (
 )
 
 
-def _post(messages, tools=None, base=None, key=None, model=None):
+def _post(messages, tools=None, base=None, key=None, model=None, retries=6):
     body = {"model": model, "messages": messages, "temperature": 0.0}
     if tools:
         body["tools"] = tools
@@ -125,9 +125,16 @@ def _post(messages, tools=None, base=None, key=None, model=None):
     if key:
         headers["Authorization"] = f"Bearer {key}"
     url = (base or "http://localhost:11434/v1").rstrip("/") + "/chat/completions"
-    req = urllib.request.Request(url, data=json.dumps(body).encode(), headers=headers)
-    with urllib.request.urlopen(req, timeout=180) as r:
-        return json.loads(r.read().decode())
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, data=json.dumps(body).encode(), headers=headers)
+            with urllib.request.urlopen(req, timeout=180) as r:
+                return json.loads(r.read().decode())
+        except (urllib.error.URLError, TimeoutError, OSError):
+            if attempt < retries - 1:
+                time.sleep(60 * (attempt + 1))
+                continue
+            raise
 
 
 def call_llm_with_tools(model, payload, cfgs, tool_names,

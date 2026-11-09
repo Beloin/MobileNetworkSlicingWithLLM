@@ -26,30 +26,38 @@ Source: `docs/architecture.puml`.
 
 One dataset only. AdapShare (temporal load) and DeepSlice (slice classifier) optional, excluded. OpenRAN too large.
 
-## Results (ramp, 100 states, per-slice closed loop)
+## Results (per-slice closed loop)
+
+Ramp, 100 states (steady and spike in `analysis_results.pdf`):
 
 ```
 method                  viol%  repl  under  over   mae
 threshold                24.7  2.50   1.11  0.11  0.49
 hpa                      15.7  2.63   0.95  0.08  0.00
 predict-then-threshold   15.7  2.63   0.95  0.08  0.00
-capacity-rule            1.0  3.73   0.16  0.38  1.10
-llm-real-flash            7.7  3.93   0.53  0.96  1.48
+capacity-rule             1.0  3.73   0.16  0.38  1.10
+llm-flash                10.0  3.09   0.74  0.33  0.47
+llm-glm5.3                8.0  3.50   0.57  0.57  0.87
+llm-deepseek             13.3  2.83   0.86  0.19  0.21
 ```
 
-- Real LLM beats threshold and HPA on violation, at higher replica cost.
-- capacity-rule shares the oracle's capacity model (`required_replicas`), so it is a
-  near-optimal upper-bound reference, not a competitor to beat. Intentionally
-  close to the solution — it shows the ceiling the model allows.
+`llm-*` = Ollama cloud LLM acting through MCP tools
+(inspect_infrastructure + scale_replicas), same closed loop, 3 models.
+
+- capacity-rule shares the oracle's capacity model, so it is a near-optimal
+  upper-bound reference, not a competitor to beat.
+- The tool-calling LLM beats threshold/hpa on violation but trails capacity-rule;
+  per-model bias varies (flash over-provisions, deepseek under-provisions).
 
 ## LLM models (Ollama cloud, localhost, no token)
 
-| Model | mean latency | notes |
-|-------|-------------|-------|
-| glm-5.3-flash:cloud | 4.4 s | fast; ran the full 100-step loop |
-| deepseek-v4-pro:cloud | 7.1 s | |
-| glm-5.3:cloud | 8.4 s | |
-| mistral-large-4:cloud | 22.7 s | ~2x tokens, same decisions |
+| Model | mean latency | tokens | notes |
+|-------|-------------|--------|-------|
+| glm-5.3-flash:cloud | 2.8 s | 1.2k | fast |
+| glm-5.3:cloud | 4.6 s | 1.3k | |
+| deepseek-v4-pro:cloud | 7.2 s | 1.7k | |
+
+mistral-large-4:cloud excluded — ~3x slower, ~2x tokens, same decisions.
 
 ## Repo layout
 
@@ -57,7 +65,8 @@ llm-real-flash            7.7  3.93   0.53  0.96  1.48
 src/            # prototype (env, capacity, oracle, gate, mcp_server, llm, benchmark, experiment, report)
 tests/          # pytest, 8 passing
 results/        # experiment_results.json + graphs
-initial_results.pdf
+analysis_results.pdf
+docs/           # findings, paper-writing guide, PDFs v1/v2, diagrams
 PLAN.md         # full plan + findings (section 15)
 timeline.md     # pipeline steps
 ```
@@ -66,12 +75,12 @@ timeline.md     # pipeline steps
 
 ```
 python -m pytest tests -q
-python -m src.experiment          # benchmarks + 4-model LLM calls -> results JSON
-python -m src.run_real_full       # real LLM over full 100-step ramp
-python -m src.report              # build initial_results.pdf
+python -m src.experiment          # baselines + single-shot LLM -> results JSON
+python -m src.run_llm_benchmark   # closed-loop tool-calling LLM, all scenarios
+python -m src.report_analysis     # build analysis_results.pdf
 python -m src.mcp_server          # serve MCP over stdio
 ```
 
 ## Status
 
-End to end done. RQ5 answered: `estimate_capacity` tool cuts MAE 1.18->0.20 and cost 3.47->2.55 but raises violation 6.7%->11.7% (exact, not safer). Centerpiece (Mode T / Mode D / YAML-vs-MCP) still open — see `initial_results.pdf` and PLAN.md §15.
+End to end done. RQ5 answered: `estimate_capacity` tool cuts MAE 1.22->0.22 and cost 3.53->2.57 but raises violation 3.3%->10.0% (exact, not safer); `inspect_infrastructure` is the preferred tool. See `analysis_results.pdf` and PLAN.md §15.
