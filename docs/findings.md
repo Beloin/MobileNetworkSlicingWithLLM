@@ -88,8 +88,8 @@ Six typed tools (JSON-RPC 2.0 over stdio, dependency-free):
 
 ### Full closed loop (per-slice) — `results/experiment_results.json`
 
-Non-LLM controllers run the full ramp/steady/spike; the LLM runs a 34-state ramp
-subset (`ramp-llm`, flash only) to bound wall-clock.
+All controllers run the full ramp/steady/spike. `llm-*` = Ollama cloud LLM
+acting through MCP tools (inspect_infrastructure + scale_replicas), 3 models.
 
 ```
 # ramp (100 states)
@@ -98,18 +98,25 @@ threshold                24.7  2.50   1.11  0.11  0.49
 hpa                      15.7  2.63   0.95  0.08  0.00
 predict-then-threshold   15.7  2.63   0.95  0.08  0.00
 capacity-rule             1.0  3.73   0.16  0.38  1.10
+llm-flash                10.0  3.09   0.74  0.33  0.47
+llm-glm5.3                8.0  3.50   0.57  0.57  0.87
+llm-deepseek             13.3  2.83   0.86  0.19  0.21
 
-# steady (80 states): threshold 27.5 / hpa 16.7 / predict 16.7 / capacity-rule 0.8
-# spike  (70 states): threshold 20.0 / hpa 14.6 / predict 15.0 / capacity-rule 1.7
+# steady (80 states)
+threshold 27.5 / hpa 16.7 / predict 16.7 / capacity-rule 0.8
+llm-flash 11.2 / llm-glm5.3 9.2 / llm-deepseek 16.7
 
-# ramp-llm (34 states, same subset for all):
-#   threshold 28.4 / hpa 20.6 / predict 20.6 / capacity-rule 2.9
-#   llm-real-flash 8.8% viol, 3.63 repl, 0.81 under, 0.58 over, mae 1.26
+# spike (80 states)
+threshold 20.0 / hpa 14.6 / predict 15.0 / capacity-rule 1.7
+llm-flash 8.3 / llm-glm5.3 5.4 / llm-deepseek 12.1
 ```
 
-capacity-rule still the best cost/safety balance (viol ~1%, repl ~3.7). The real
-LLM (flash) beats threshold/hpa on violation (8.8 vs 20.6–28.4) at higher
-replicas (3.63 vs ~2.5).
+capacity-rule still the best on violation (~1%) — it is a deterministic
+over-provisioner (over > under everywhere) that buys headroom via hysteresis, not
+by seeing the future (it gets the same payload as the LLM: current load +
+forecast + p_violation). The tool-calling LLM beats threshold/hpa but trails
+capacity-rule; per-model bias varies (deepseek under-provisions, flash/glm5.3
+over-provision).
 
 ### Inspect-tool A/B — `results/inspect_scenarios.json`
 ```
@@ -150,15 +157,19 @@ mistral excluded (was ~22.7s / ~2x tokens, same decisions).
 
 - **RQ1 (valid, safe changes)**: yes, within tested scenarios. Gate enforces
   bounds; traces confirm correct calls; rejections proven in unit tests.
-- **RQ2 (under/over vs oracle)**: plain LLM over-provisions (over 0.23–1.13
-  across scenarios); with the inspect tool under+over collapse to ≤0.10.
+- **RQ2 (under/over vs oracle, closed loop)**: flash over-provisions (over
+  0.31–0.36, under 0.70–0.85); glm-5.3 over-provisions (over 0.55–0.85);
+  deepseek under-provisions (under 0.81–1.11, over 0.19–0.36). The inspect tool
+  does NOT collapse the closed-loop error the way it did in isolated A/B — the
+  oracle scores against future load.
 - **RQ3 (latency/cost)**: flash 2.8s < glm-5.3 4.6s < deepseek 7.2s; mistral
   excluded (~2x tokens, same decisions).
 - **RQ4 (YAML vs MCP)**: both wired, not head-to-head. MCP typed tools are safer.
 - **RQ5 (estimate_capacity)**: exact but slightly riskier; inspect tool is better.
-- **RQ6 (LLM beats rules)**: plain LLM beats threshold/HPA on violation (8.8 vs
-  20.6–28.4%) at ~1.4x replica cost; with the tool it is near-optimal. The
-  tool, not the model, wins.
+- **RQ6 (LLM beats rules)**: tool-calling LLM beats threshold and HPA on
+  violation (5.4–16.7 vs 14.6–28.4%) but trails capacity-rule (~1%). The gap vs
+  capacity-rule is an over-provisioning policy difference, not information
+  asymmetry — capacity-rule sees the same payload.
 
 ## Decisions / changes made
 
@@ -169,17 +180,17 @@ mistral excluded (was ~22.7s / ~2x tokens, same decisions).
 - System prompt reverted (no cost wording).
 - `chat()` retries 429/5xx/timeouts.
 
-## Final "real" results — generated
+## Final results — generated
 
 Final numbers above are the clean re-run (tool-call-as-answer harness, no
 mistral). Generated with:
 
-1. `python -m src.experiment` — benchmark + single-shot LLM (3 models).
-2. `python -m src.inspect_scenarios` — inspect A/B (18 keys, fresh).
-3. `python -m src.rq5_tool` — RQ5.
-4. `python -m src.tool_trace` — traces (3 models × 10 states, fresh).
-5. `python -m src.report_full` (analysis.pdf) + `python -m src.report`
-   (initial_results.pdf).
+1. `python -m src.experiment` — baselines + single-shot LLM (3 models).
+2. `python -m src.run_llm_benchmark` — closed-loop tool-calling LLM, all scenarios.
+3. `python -m src.inspect_scenarios` — inspect A/B (record only, not in report).
+4. `python -m src.rq5_tool` — RQ5.
+5. `python -m src.tool_trace` — traces.
+6. `python -m src.report_analysis` — `analysis_results.pdf`.
 
 Old pre-exclusion PDFs kept as `docs/analysis_v1.pdf`,
 `docs/initial_results_v1.pdf`.
