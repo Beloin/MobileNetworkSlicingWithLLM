@@ -124,6 +124,10 @@ def build_pdf():
          Paragraph("Prototype report. Dataset: Farreras et al. 2024 (Zenodo 10610616). "
                    "Analytic capacity model + per-slice LLM/MCP compiler. "
                    "mistral-large-4 excluded (cost, same decisions).", body),
+         Paragraph("<b>Caveat:</b> single run, no repetitions. Non-LLM baselines are "
+                   "deterministic; each LLM result is one closed-loop trajectory per model per "
+                   "scenario, not an average over repeated runs. No error bars — variance was "
+                   "not measured.", body),
          Spacer(1, 8)]
 
     # 1. Dataset EDA
@@ -282,6 +286,8 @@ def build_pdf():
 
     # 8. Benchmark results
     S.append(Paragraph("8. Benchmark (per-slice closed loop)", h2))
+    S.append(Paragraph("Single run per method; LLM rows are one trajectory each — no repetitions, "
+                       "no error bars.", body))
     for scen in exp["benchmark"]:
         S.append(Paragraph(f"Scenario: <b>{scen}</b>", body))
         rows = [["method", "viol%", "repl", "under", "over", "upRec", "upPrec", "holdOk", "mae"]]

@@ -91,6 +91,10 @@ Six typed tools (JSON-RPC 2.0 over stdio, dependency-free):
 All controllers run the full ramp/steady/spike. `llm-*` = Ollama cloud LLM
 acting through MCP tools (inspect_infrastructure + scale_replicas), 3 models.
 
+Single run, no repetitions: non-LLM baselines are deterministic; each LLM row is
+one closed-loop trajectory (mean over its steps), not an average over repeated
+runs. No error bars — variance not measured.
+
 ```
 # ramp (100 states)
 method                  viol%  repl  under  over   mae
